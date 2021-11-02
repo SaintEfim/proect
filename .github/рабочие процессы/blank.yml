@@ -1,0 +1,227 @@
+#include<iostream>
+#include <string>
+#include<algorithm>
+#include <cctype>
+#include <map>
+#include <unordered_map>
+#include <fstream>
+#include<cstring>
+#pragma warning(disable : 4996)
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	double a, b, sum = 0;
+	char oper;
+	std::cout <<"Введите пример из двух переменных." <<std::endl <<"В этом калькуляторе вы можете складывать(+),вычитать(-),умножать(*) и делить(/)." << std::endl;
+	while ((std::cin.get() == '\n'))
+	{
+		std::cout << "Найдена пустрая строка. Введите новые значения." << '\n';
+	}
+	std::cin>> a >>oper>> b;
+	if (std::cin.good())
+	{
+		if (oper == '+' || oper == '-' || oper == '*' || oper == '/')
+		{
+			switch (oper)
+			{
+			case('+'):
+			{
+				sum = a + b;
+				std::cout << "Ответ:" << sum << std::endl;
+				main();
+				break;
+			}
+			case('-'):
+			{
+				sum = a - b;
+				std::cout << "Ответ:" << sum << std::endl;
+				main();
+				break;
+			}
+			case('*'):
+			{
+				sum = a * b;
+				std::cout << "Ответ:" << sum << std::endl;
+				main();
+				break;
+			}
+			case('/'):
+			{
+				if (b == 0)
+				{
+					std::cout << "На 0 делить нельзя !" << std::endl;
+					main();
+					return 0;
+				}
+				else
+				{
+					sum = a / b;
+					std::cout << "Ответ:" << sum << std::endl;
+					main();
+					break;
+				}
+			}
+			}
+		}
+		else
+		{
+			std::cout << "Вы использовали не допустимый символ или вели не число!" << std::endl
+				<< "Для корректной работы калькулятора используйте,только такие символы:+,-,* или /" << std::endl
+				<< "Знак + отвечает за сложение" << std::endl
+				<< "Знак - отвечает за вычитание" << std::endl
+				<< "Знак * отвечат за умножение" << std::endl
+				<< "Знак / отвечает за деление " << std::endl;
+			main();
+			return 0;
+		}
+	}
+	else
+	{
+		std::cout << "Вы вели не число а символ(ы)!";
+		return 0;
+	}
+}
+// 2) Задание 
+//int main()
+//{
+//	int a;
+//	std::string one;
+//	std::string two;
+//	std::string sum;
+//	std::fstream my_file;
+//	char ch;
+//	std::cout <<"\nString processing"<< '\n'<<
+//		"1)Endless cycle"<< '\n'<<
+//		"2)Exit"<< '\n'<<
+//		"3)UpperCase"<< '\n'<<
+//		"4)LowerCase"<< '\n'<<
+//		"5)Concatenate"<< '\n'<<
+//		"6)String Into File"<< '\n'<<
+//		"7)Read From File" << '\n';
+//		std::cin >> a;
+//		while (a < 1 || a>6) 
+//        {
+//			std::cout << "You should choose any operation" << '\n';
+//			return(0);
+//		}
+//		switch (a) 
+//        {
+//		case(1): {
+//			std::cout << "Enter String: ";
+//			std::cin >> one;
+//			while (true) {
+//				std::cout << "Result: " << one << std::endl;
+//			}
+//			main();
+//			break;
+//		}
+//		case(2): {
+//			std::cout << "Exiting..";
+//			return 0;
+//		}
+//		case(3): {
+//			std::cout << "Enter String: ";
+//			std::cin >> one;
+//			std::transform(one.begin(), one.end(), one.begin(), ::toupper);
+//			std::cout << "Result: " << one;
+//			std::cout << '\n';
+//			main();
+//			break;
+//		}
+//		case(4): {
+//			std::cout << "Enter String: ";
+//			std::cin >> one;
+//			std::transform(one.begin(), one.end(), one.begin(), ::tolower);
+//			std::cout << "Result: " << one;
+//			std::cout << '\n';
+//			main();
+//			break;
+//		}
+//		case(5): {
+//			std::cout << "Enter First String: ";
+//			std::cin >> one;
+//			std::cout << "Enter Second String: ";
+//			std::cin >> two;
+//			sum = one + " " + two;
+//			std::cout << "Result: " << sum << '\n';
+//			main();
+//			break;
+//		}
+//		case(6): {
+//			std::cout << "Enter String: ";
+//			std::cin >> one;
+//			std::ofstream out("text.txt");
+//			out << one;
+//			std::cout << "The data: " << one << " was written in text.txt";
+//			out.close();
+//			std::cout << '\n';
+//			main();
+//			break;
+//		}
+//		case(7): {
+//			std::cout << "Enter FileName: ";
+//			std::cin >> one;
+//			my_file.open(one, std::ios::in);
+//			if (!my_file) {
+//				std::cout << "No such file";
+//			}
+//			else {
+//				while (1) {
+//					my_file >> ch;
+//					if (my_file.eof())
+//						break;
+//					std::cout << ch;
+//				}
+//			}
+//			my_file.close();
+//			std::cout << '\n';
+//			main();
+//			break;
+//		}
+//		default: {
+//			std::cout << "error" << '\n';
+//		}
+//		}
+//}
+//3)задание
+//std::unordered_map<std::string, int> calc()
+//{
+//    std::unordered_map<std::string, int> dictionary;
+//    char*sus;
+//    std::string st;
+//    std::getline(std::cin, st);
+//    char* cstr = &st[0];
+//    char* dim = strtok(cstr, " ");
+//
+//    while (dim !=0)
+//    {
+//        dictionary[std::string(dim)]++;
+//        dim = strtok(0, " ");
+//    }
+//    return dictionary;
+//}
+//
+//int main()
+//{
+//    setlocale(LC_ALL, "rus");
+//    std::cout << "Введите текст\n";
+//    while (true)
+//    {
+//        std::unordered_map<std::string, int> dictionary = calc();
+//
+//        int max = -1;
+//        std::string MaxSecond = "";
+//        for (const auto& kv : dictionary)
+//        {
+//            if (kv.second > max) {
+//                max = kv.second;
+//                MaxSecond = kv.first;
+//            }
+//        }
+//
+//        std::cout <<"Часто встречймое слово:"<<MaxSecond << '\n';
+//    }
+//    return 0;
+//}
+
+
