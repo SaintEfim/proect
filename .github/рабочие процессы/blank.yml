@@ -12,10 +12,10 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	double a, b, sum = 0;
 	char oper;
-	std::cout <<"Введите пример из двух переменных." <<std::endl <<"В этом калькуляторе вы можете складывать(+),вычитать(-),умножать(*) и делить(/)." << std::endl;
+	std::cout <<"Enter a two-number example." <<std::endl <<"In this calculator, you can add (+), subtract (-), multiply (*) and divide (/)." << std::endl;
 	while ((std::cin.get() == '\n'))
 	{
-		std::cout << "Найдена пустрая строка. Введите новые значения." << '\n';
+		std::cout << "Found an empty string. Enter new values." << '\n';
 	}
 	std::cin>> a >>oper>> b;
 	if (std::cin.good())
@@ -27,21 +27,21 @@ int main()
 			case('+'):
 			{
 				sum = a + b;
-				std::cout << "Ответ:" << sum << std::endl;
+				std::cout << "Answer:" << sum << std::endl;
 				main();
 				break;
 			}
 			case('-'):
 			{
 				sum = a - b;
-				std::cout << "Ответ:" << sum << std::endl;
+				std::cout << "Answer:" << sum << std::endl;
 				main();
 				break;
 			}
 			case('*'):
 			{
 				sum = a * b;
-				std::cout << "Ответ:" << sum << std::endl;
+				std::cout << "Answer:" << sum << std::endl;
 				main();
 				break;
 			}
@@ -49,14 +49,14 @@ int main()
 			{
 				if (b == 0)
 				{
-					std::cout << "На 0 делить нельзя !" << std::endl;
+					std::cout << "You cannot divide by 0!" << std::endl;
 					main();
 					return 0;
 				}
 				else
 				{
 					sum = a / b;
-					std::cout << "Ответ:" << sum << std::endl;
+					std::cout << "Answer:" << sum << std::endl;
 					main();
 					break;
 				}
@@ -65,19 +65,19 @@ int main()
 		}
 		else
 		{
-			std::cout << "Вы использовали не допустимый символ или вели не число!" << std::endl
-				<< "Для корректной работы калькулятора используйте,только такие символы:+,-,* или /" << std::endl
-				<< "Знак + отвечает за сложение" << std::endl
-				<< "Знак - отвечает за вычитание" << std::endl
-				<< "Знак * отвечат за умножение" << std::endl
-				<< "Знак / отвечает за деление " << std::endl;
+			std::cout << "You have used an invalid character or entered a wrong number!" << std::endl
+				<< "For the calculator to work correctly, use only the following symbols: +, -, * or /" << std::endl
+				<< "The + sign is responsible for addition" << std::endl
+				<< "Sign - is responsible for subtraction" << std::endl
+				<< "The * sign will answer for multiplication" << std::endl
+				<< "The / sign is responsible for division" << std::endl;
 			main();
 			return 0;
 		}
 	}
 	else
 	{
-		std::cout << "Вы вели не число а символ(ы)!";
+		std::cout << "You were driving not a number, but a character (s)!";
 		return 0;
 	}
 }
@@ -89,6 +89,7 @@ int main()
 //	std::string two;
 //	std::string sum;
 //	std::fstream my_file;
+//	std::fstream file;
 //	char ch;
 //	std::cout <<"\nString processing"<< '\n'<<
 //		"1)Endless cycle"<< '\n'<<
@@ -148,15 +149,22 @@ int main()
 //			break;
 //		}
 //		case(6): {
-//			std::cout << "Enter String: ";
+//			std::cout << "Enter FileName: ";
 //			std::cin >> one;
-//			std::ofstream out("text.txt");
-//			out << one;
-//			std::cout << "The data: " << one << " was written in text.txt";
-//			out.close();
-//			std::cout << '\n';
-//			main();
-//			break;
+//			file.open(one, std::ios::in);
+//			if (!file) {
+//				std::cout << "No such file";
+//			}
+//			else {
+//				std::cin >> one;
+//				std::ofstream out("text.txt");
+//				out << one;
+//				std::cout << "The data: " << one << " was written in text.txt";
+//				out.close();
+//				std::cout << '\n';
+//				main();
+//				break;
+//			}
 //		}
 //		case(7): {
 //			std::cout << "Enter FileName: ";
