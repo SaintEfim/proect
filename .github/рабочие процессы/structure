@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Without_job
+{
+ string surname;
+ string name;
+ string patronymic;
+ int year_birthday;
+ string profession;
+ int month_without_job;
+};
+
+int main()
+{
+    Without_job structure_element;
+    Without_job array[100];
+    int element_int, count, i=0;
+    string element_str;
+
+    cout << "Quantity of record: ";
+    cin >> count;
+    while (i!= count)
+    {
+        cout << "\nEnter:\n";
+        cout << " surname: ";
+        cin >> element_str;
+        structure_element.surname = element_str;
+        cout << " name: ";
+        cin >> element_str;
+        structure_element.name = element_str;
+        cout << " patronymic: ";
+        cin >> element_str;
+        structure_element.patronymic = element_str;
+        cout << " year birthday: ";
+        cin >> element_int;
+        structure_element.year_birthday = element_int;
+        cout << " profession: ";
+        cin >> element_str;
+        structure_element.profession = element_str;
+        cout << " month without job: ";
+        cin >> element_int;
+        structure_element.month_without_job = element_int;
+        array[i] = structure_element;
+        i++;
+    }
+    i = 0;
+    system("cls");
+    for (i; i < count; i++)
+    {
+        if (array[i].month_without_job > 5)
+        {
+            cout <<"surname: " << array[i].surname << "\n";
+            cout << "name: " << array[i].name << "\n";
+            cout << "patronymi: " << array[i].patronymic << "\n";
+            cout << "year_birthday: " << array[i].year_birthday << "\n";
+            cout << "profession: " << array[i].profession << "\n";
+            cout << "month_without_job: " << array[i].month_without_job << "\n";
+        }
+    }
+    return 0;
+}
